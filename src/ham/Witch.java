@@ -100,4 +100,16 @@ public class Witch extends Monster{
         super.hit(damage);
     }
 
+    @Override
+    public int[] attack(){
+        int[] solution = super.attack();
+        if(this.mirrored){
+            System.out.println("The witch has been mirrored and will do reduced damage");
+            int size = solution.length-1;
+            solution[size] /=3;
+            this.mirrored = false;
+        }
+        return solution;
+    }
+
 }
