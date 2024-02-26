@@ -90,11 +90,16 @@ public class Game {
         this.y_coord = this.rows -1;
         this.x_coord = this.columns - 1;
         String name = "Slag";
-        int choice = Misc.gen_random_int(1, 3);
+        int choice = Misc.gen_random_int(1, 4);
         if(choice == 1) {
             System.out.println(name + " is a Warrior.");
         }else if(choice == 2) {
             System.out.println(name + " is a Troll.");
+        }
+        else if(choice == 3){
+            System.out.println(name + " is a cleric");
+        }else if(choice ==4){
+            System.out.println(name + " is a witch");
         }
         dc2 = chose_character(name,choice);
         board.mark_board(dc2.get_location()[0], dc2.get_location()[1],dc2.get_symbol());
@@ -124,18 +129,19 @@ public class Game {
                 return initialize_troll(name);
             case 3:
                 return initialize_cleric(name);
+            case 4:
+                return initialize_witch(name, is_human);
             default:
                 return null;
         }
     }
 
-    private Dungeon_Character initialize_witch(String name){
+    private Dungeon_Character initialize_witch(String name, boolean is_human){
         double chance_to_regen = 0.2;
         int min_regen = 2;
         int max_regen = 10;
         double chance_to_mirror = 0.2;
         double chance_to_teleport = 0.2;
-        boolean is_human = true;
         boolean mirrored = false;
         Dungeon_Character dc = new Witch(name, max_hp, y_coord, x_coord, base_chance, do_damage_max, do_damage_min, direction, rows, columns, chance_to_regen,
                 min_regen, max_regen, is_human, mirrored, chance_to_teleport, chance_to_mirror, scan);
