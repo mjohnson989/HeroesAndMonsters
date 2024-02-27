@@ -130,7 +130,7 @@ public class Game {
             case 3:
                 return initialize_cleric(name);
             case 4:
-                return initialize_witch(name, is_human);
+                return initialize_witch(name, true);
             default:
                 return null;
         }
