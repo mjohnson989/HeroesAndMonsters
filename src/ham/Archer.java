@@ -24,26 +24,22 @@ public class Archer extends Hero{
 
     private int get_choice(){
         int[] location = super.get_location();
+        int direction = super.get_direction();
+        int max = 0;
+        int min = 2;
+        switch(direction){
+            case 1:
+                max = location[0];
+                break;
+            case 2:
+                max = columns - location[1];
+                break;
+            case 3:
+                max = rows - location[0];
+                break;
+            case 4:
+                max = rows - location[1];
+                break;
 
-
-        int choice = 0;
-        if(is_human){
-            System.out.println("How many squares ahead would you like to fire your arrow? ");
-            choice = Misc.get_user_int(scan, 2, 5);
-        }else{
-            choice = Misc.gen_random_int(1, 2);
         }
-
-        if(choice == 1){
-            System.out.println(super.get_name() + " has chosen to teleport ");
-            if(is_human){
-                this.move();
-            }else{
-
-            }
-        }else{
-            System.out.println(super.get_name() + " has chosen not to teleport and moves normally ");
-        }
-        return choice;
-    }
 }
