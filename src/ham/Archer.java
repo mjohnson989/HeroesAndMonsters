@@ -29,7 +29,7 @@ public class Archer extends Hero{
         int choice = 0;
         if(is_human){
             System.out.println("How many squares ahead would you like to fire your arrow? ");
-            choice = Misc.get_user_int(scan, 2, );
+            choice = Misc.get_user_int(scan, 2, 5);
         }else{
             choice = Misc.gen_random_int(1, 2);
         }
