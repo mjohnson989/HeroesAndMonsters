@@ -19,6 +19,17 @@ public class Archer extends Hero{
         this.rows = rows;
         this.columns = columns;
     }
+
+    @Override
+    public int[] attack(){
+        int[] solution = super.attack();
+        int choice = get_choice();
+        if(choice == 1){
+            solution = arrow_solution(solution);
+        }
+        return solution;
+    }
+
     private int[] arrow_solution(int[] solution){
         int choice = 0;
         if(is_human){
